@@ -1,12 +1,9 @@
 package pl.coderslab.model;
 
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
@@ -21,9 +18,9 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue
     protected Long id;
 
-    @CreationTimestamp
-    protected LocalDate created;
-
-    @UpdateTimestamp
-    protected LocalDate modified;
+//    @CreationTimestamp
+//    protected LocalDate created;
+//
+//    @UpdateTimestamp
+//    protected LocalDate modified;
 }

@@ -2,10 +2,10 @@ package pl.coderslab.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -14,10 +14,18 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @ToString
-@Table(name = "role")
-public class Role extends BaseEntity {
+@Table(name = "roles")
+public class Role {
+
+    @Column(name = "role_id")
+    @Id
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "role")
     @Size(max = 45)
-    private String name;
+    private String role;
+
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users = new HashSet<>();
 }
