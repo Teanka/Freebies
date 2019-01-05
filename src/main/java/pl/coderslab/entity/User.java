@@ -1,10 +1,11 @@
-package pl.coderslab.model;
+package pl.coderslab.entity;
 
 import lombok.*;
-import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,21 +15,33 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue
     @Column(name = "user_id")
     private Long id;
+
     private String username;
+
     @Email
     @Column(nullable = false, unique = true)
     private String email;
+
     private String password;
+
     private int enabled;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<GiveAway> giveAways;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "address_id")
+    private Address address;
 
 }

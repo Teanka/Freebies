@@ -3,8 +3,8 @@ package pl.coderslab.service;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import pl.coderslab.model.Role;
-import pl.coderslab.model.User;
+import pl.coderslab.entity.Role;
+import pl.coderslab.entity.User;
 
 import java.util.Collection;
 import java.util.HashSet;

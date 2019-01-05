@@ -1,4 +1,4 @@
-package pl.coderslab.model;
+package pl.coderslab.entity;
 
 import lombok.*;
 
@@ -15,7 +15,7 @@ import java.util.Set;
 @Setter
 @ToString
 @Table(name = "roles")
-public class Role {
+public class Role extends BaseEntity {
 
     @Column(name = "role_id")
     @Id
