@@ -5,10 +5,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 
 @Service
+@Transactional
 public class UserServiceImpl implements  UserService, UserDetailsService {
 
     @Autowired

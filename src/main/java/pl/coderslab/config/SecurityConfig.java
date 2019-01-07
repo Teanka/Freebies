@@ -41,9 +41,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/admin").authenticated()
 //                .and().formLogin();
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers(
+                        "/",
+                        "/js/**",
+                        "/css/**",
+                        "/img/**").permitAll()
+                .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN") // require login in this path
-                .anyRequest().authenticated() // permit all for the rest of paths
+                .anyRequest().permitAll() // permit all for the rest of paths
 
                 .and()
                 .formLogin()
