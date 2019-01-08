@@ -30,6 +30,9 @@ public class User extends BaseEntity {
 
     private String password;
 
+    @Transient
+    private String checkPass;
+
     private int enabled;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

@@ -17,6 +17,11 @@ import java.util.Set;
 @Table(name = "roles")
 public class Role extends BaseEntity {
 
+    public Role(@Size(max = 45) String role, Set<User> users) {
+        this.role = role;
+        this.users = users;
+    }
+
     @Column(name = "role_id")
     @Id
     @GeneratedValue
