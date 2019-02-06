@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +25,8 @@ public class User extends BaseEntity {
 
     private String username;
 
-    @Email
+    @Email(message = "Podaj prawidłowy adres email")
+    @NotEmpty(message = "Podaj adres email")
     @Column(nullable = false, unique = true)
     private String email;
 

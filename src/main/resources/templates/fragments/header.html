@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,7 @@
 <header class="header--main-page" th:fragment="header">
     <nav class="container container--70">
         <ul class="nav--actions">
+            <li sec:authorize="hasRole('USER')">Text visible to user.</li>
             <li><a th:href="@{/login}" class="btn btn-success full">Zaloguj</a></li>
             <li><a th:href="@{/register}" class="btn btn-primary full">Załóż konto</a></li>
         </ul>

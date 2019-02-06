@@ -49,7 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN") // require login in this path
                 .anyRequest().permitAll() // permit all for the rest of paths
-
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll() // login page set to /login and all users are permitted to visit it
